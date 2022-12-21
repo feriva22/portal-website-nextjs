@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: portal-website
+  labels:
+    app: portal-website
+    service: portal-website
+spec:
+  ports:
+  - port: 3000
+    name: http
+  selector:
+    app: portal-website
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-website-v1
+  labels:
+    app: portal-website
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal-website
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: portal-website
+        version: v1
+    spec:
+      containers:
+      - name: portal-website
+        image: docker.io/feriva22/portal-website-nextjs:latest
+        resources:
+          requests:
+            cpu: "100m"
+        imagePullPolicy: Always #IfNotPresent #Always
+        ports:
+        - containerPort: 3000
