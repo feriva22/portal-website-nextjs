@@ -5,13 +5,13 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>DevOps Warrior Portal Site</title>
+        <title>Portofolio Portal Site</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://www.devops-warrior.site">DevOps Warrior Site</a>
+          Welcome to <a href="https://www.feriva22.me">Feriva22 Portofolio Site</a>
         </h1>
         <h2>
         running as Container!
